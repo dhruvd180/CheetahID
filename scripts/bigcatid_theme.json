@@ -1,0 +1,28 @@
+{
+  "macOS": false,
+  "colors": {
+    "color_primary": "#ff7f00",
+    "color_primary_dark": "#cc6600",
+    "color_primary_light": "#ffa64d",
+    "color_secondary": "#ffffff",
+    "color_tertiary": "#f0f0f0",
+    "color_disabled": "#d9d9d9",
+    "color_font": "#000000",
+    "color_font_disabled": "#7f7f7f",
+    "color_border": "#ff7f00",
+    "color_border_disabled": "#d9d9d9",
+    "color_button_hover": "#e67300",
+    "color_button_pressed": "#cc6600",
+    "color_button_hover_text": "#ffffff",
+    "color_button_pressed_text": "#ffffff"
+  },
+  "scales": {
+    "scale_1": 1,
+    "scale_2": 1,
+    "scale_3": 1,
+    "scale_4": 1,
+    "scale_5": 1,
+    "scale_6": 1,
+    "scale_7": 1
+  }
+}
