@@ -7,6 +7,7 @@ import numpy as np
 import pickle
 from collections import defaultdict
 import cv2
+cv2.ocl.setUseOpenCL(False)  # disables OpenCL
 from ultralytics import YOLO
 
 # Import the enhanced model and cropper
