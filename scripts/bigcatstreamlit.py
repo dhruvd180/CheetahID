@@ -11,7 +11,8 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import io
 import base64
-
+import os
+os.path.exists("models/reference_embeddings_cropped.pkl")
 
 import sys
 from pathlib import Path
@@ -1222,6 +1223,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
