@@ -7,9 +7,9 @@ import numpy as np
 import pickle
 from collections import defaultdict
 import os
-os.environ["OPENCV_OPENGL_RUNTIME"] = "0"
+
 import cv2
-cv2.ocl.setUseOpenCL(False)
+
 from ultralytics import YOLO
 
 # Import the enhanced model and cropper
