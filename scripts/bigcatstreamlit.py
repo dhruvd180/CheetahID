@@ -18,7 +18,10 @@ from pathlib import Path
 import os
 import sys
 import traceback
-
+import sys
+print(sys.path)
+import os
+print(os.listdir())
 # Import inference pipeline (with fallback for demo mode)
 try:
     from models.inference_pipeline import EnhancedCheetahIdentifier
@@ -1209,6 +1212,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
