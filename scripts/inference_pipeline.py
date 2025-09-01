@@ -158,6 +158,8 @@ class EnhancedCheetahIdentifier:
         # Average embeddings from all crops
         final_embedding = torch.cat(all_embeddings, dim=0).mean(dim=0, keepdim=True)
         return final_embedding
+        st.write(f"Using image: {image_path}")
+        st.write(f"Cropping enabled: {self.use_cropping}")
     
     def compute_similarity_scores(self, query_embedding):
         """Compute similarity scores against all reference individuals"""
@@ -551,3 +553,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
