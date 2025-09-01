@@ -2,13 +2,12 @@
 streamlit==1.49.1
 plotly
 
-# Torch CPU
+
+# Numerical and ML
+numpy==1.25.2
 torch==2.7.1+cpu
 torchvision==0.22.1+cpu
 --extra-index-url https://download.pytorch.org/whl/cpu
-
-# Numerical and ML
-numpy==1.26.3
 scikit-learn
 
 # Computer vision
