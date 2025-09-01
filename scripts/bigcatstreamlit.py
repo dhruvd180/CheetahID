@@ -19,6 +19,8 @@ import os
 import sys
 import traceback
 
+# Ensure scripts folder is in Python path
+sys.path.append(os.path.dirname(__file__))  # scripts/
 st.write("=== DEBUGGING INFORMATION ===")
 st.write("Current working directory:", os.getcwd())
 st.write("Python path:", sys.path)
@@ -1268,6 +1270,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
