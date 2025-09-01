@@ -18,7 +18,7 @@ from pathlib import Path
 import sys
 import os
 import traceback
-
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 # Print current working directory and sys.path for debugging
 print("Current working directory:", os.getcwd())
 print("Python module search paths:", sys.path)
@@ -1218,6 +1218,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
