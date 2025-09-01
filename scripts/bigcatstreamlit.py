@@ -12,9 +12,13 @@ from plotly.subplots import make_subplots
 import io
 import base64
 
-from pathlib import Path
-# Add this debugging section at the top of your streamlit app, right after the imports
 
+import sys
+from pathlib import Path
+
+# Add project root to Python path
+project_root = Path(__file__).parent.parent.resolve()
+sys.path.append(str(project_root))
 import sys
 import os
 import traceback
@@ -1218,6 +1222,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
