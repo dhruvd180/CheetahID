@@ -13,11 +13,70 @@ import io
 import base64
 
 from pathlib import Path
+# Add this debugging section at the top of your streamlit app, right after the imports
+
+import os
 import sys
-st.write("Current working dir:", os.getcwd())
-st.write("Files in working dir:", os.listdir("."))
-st.write("Files in models/:", os.listdir("models"))
-st.write("Model file size:", os.path.getsize("models/cheetah_cropped_embedder.pt") / 1e6, "MB")
+import traceback
+
+st.write("=== DEBUGGING INFORMATION ===")
+st.write("Current working directory:", os.getcwd())
+st.write("Python path:", sys.path)
+st.write("Files in current directory:")
+files = os.listdir(".")
+for f in files:
+    st.write(f"  - {f}")
+
+# Check specifically for inference_pipeline.py
+st.write("\n=== INFERENCE PIPELINE CHECK ===")
+inference_file_exists = os.path.exists("inference_pipeline.py")
+st.write(f"inference_pipeline.py exists: {inference_file_exists}")
+
+if inference_file_exists:
+    st.write("File size:", os.path.getsize("inference_pipeline.py"), "bytes")
+    
+    # Try to read the first few lines
+    try:
+        with open("inference_pipeline.py", "r") as f:
+            first_lines = f.readlines()[:10]
+        st.write("First 10 lines of inference_pipeline.py:")
+        for i, line in enumerate(first_lines, 1):
+            st.write(f"{i}: {line.rstrip()}")
+    except Exception as e:
+        st.write(f"Error reading file: {e}")
+
+# Test the import with detailed error info
+st.write("\n=== IMPORT TEST ===")
+try:
+    import inference_pipeline
+    st.success("✅ inference_pipeline imported successfully!")
+    
+    # Check if EnhancedCheetahIdentifier exists
+    if hasattr(inference_pipeline, 'EnhancedCheetahIdentifier'):
+        st.success("✅ EnhancedCheetahIdentifier class found!")
+    else:
+        st.error("❌ EnhancedCheetahIdentifier class not found in module")
+        st.write("Available attributes:", dir(inference_pipeline))
+        
+except ImportError as e:
+    st.error(f"❌ ImportError: {str(e)}")
+    st.write("This usually means the file doesn't exist or has syntax errors")
+except Exception as e:
+    st.error(f"❌ Other error: {str(e)}")
+    st.write("Full traceback:")
+    st.code(traceback.format_exc())
+
+# Check torch installation
+st.write("\n=== TORCH CHECK ===")
+try:
+    import torch
+    st.success(f"✅ PyTorch version: {torch.__version__}")
+    st.write(f"CUDA available: {torch.cuda.is_available()}")
+except Exception as e:
+    st.error(f"❌ PyTorch import failed: {e}")
+
+st.write("=== END DEBUGGING ===")
+st.write("")
 
 # Import inference pipeline (with fallback for demo mode)
 try:
@@ -1209,6 +1268,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
