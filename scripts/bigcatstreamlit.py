@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 from PIL import Image, ImageDraw, ImageEnhance
 import os
+os.environ["OPENCV_OPENGL_RUNTIME"] = "0"
 import json
 import time
 from datetime import datetime
@@ -1222,6 +1223,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
