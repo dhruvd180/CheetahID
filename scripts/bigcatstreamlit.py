@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 from PIL import Image, ImageDraw, ImageEnhance
 import os
-os.environ["OPENCV_OPENGL_RUNTIME"] = "0"
 import json
 import time
 from datetime import datetime
@@ -31,7 +30,7 @@ print("Files in current directory:", os.listdir())
 
 # Try importing the inference pipeline
 try:
-    from models.inference_pipeline import EnhancedCheetahIdentifier
+    from inference_pipeline import EnhancedCheetahIdentifier
     INFERENCE_AVAILABLE = True
     print("✅ Inference pipeline imported successfully. App will run in full mode.")
 except Exception as e:
@@ -1223,6 +1222,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
