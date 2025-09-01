@@ -80,7 +80,7 @@ st.write("")
 
 # Import inference pipeline (with fallback for demo mode)
 try:
-    from inference_pipeline import EnhancedCheetahIdentifier
+    from scripts.inference_pipeline import EnhancedCheetahIdentifier
     INFERENCE_AVAILABLE = True
 except ImportError:
     INFERENCE_AVAILABLE = False
@@ -1268,6 +1268,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
