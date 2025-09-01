@@ -11,7 +11,10 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import io
 import base64
+
 from pathlib import Path
+import sys
+sys.path.append("scripts")
 st.write("Current working dir:", os.getcwd())
 st.write("Files in working dir:", os.listdir("."))
 st.write("Files in models/:", os.listdir("models"))
@@ -1207,3 +1210,4 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
