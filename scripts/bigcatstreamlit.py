@@ -29,7 +29,7 @@ for f in files:
 
 # Check specifically for inference_pipeline.py
 st.write("\n=== INFERENCE PIPELINE CHECK ===")
-inference_file_exists = os.path.exists("inference_pipeline.py")
+inference_file_exists = os.path.exists("scripts.inference_pipeline.py")
 st.write(f"inference_pipeline.py exists: {inference_file_exists}")
 
 if inference_file_exists:
@@ -1268,6 +1268,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
