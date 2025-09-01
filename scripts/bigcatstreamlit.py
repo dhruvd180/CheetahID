@@ -12,7 +12,10 @@ from plotly.subplots import make_subplots
 import io
 import base64
 from pathlib import Path
-
+st.write("Current working dir:", os.getcwd())
+st.write("Files in working dir:", os.listdir("."))
+st.write("Files in models/:", os.listdir("models"))
+st.write("Model file size:", os.path.getsize("models/cheetah_cropped_embedder.pt") / 1e6, "MB")
 
 # Import inference pipeline (with fallback for demo mode)
 try:
@@ -1202,4 +1205,5 @@ st.markdown("""
     <p>BigCatID - Advanced Cheetah Identification System</p>
     <p>For Wildlife Conservation</p>
 </div>
+
 """, unsafe_allow_html=True)
