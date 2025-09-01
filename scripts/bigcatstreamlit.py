@@ -15,19 +15,25 @@ import base64
 from pathlib import Path
 # Add this debugging section at the top of your streamlit app, right after the imports
 
-import os
 import sys
+import os
 import traceback
-import sys
-print(sys.path)
-import os
-print(os.listdir())
-# Import inference pipeline (with fallback for demo mode)
+
+# Print current working directory and sys.path for debugging
+print("Current working directory:", os.getcwd())
+print("Python module search paths:", sys.path)
+print("Files in current directory:", os.listdir())
+
+# Try importing the inference pipeline
 try:
     from models.inference_pipeline import EnhancedCheetahIdentifier
     INFERENCE_AVAILABLE = True
-except ImportError:
+    print("✅ Inference pipeline imported successfully. App will run in full mode.")
+except Exception as e:
     INFERENCE_AVAILABLE = False
+    print("❌ Failed to import inference pipeline. App will run in demo mode.")
+    print("Error details:")
+    traceback.print_exc()
 # Functions
 if "identifier" not in st.session_state:
     if INFERENCE_AVAILABLE:
@@ -1212,6 +1218,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
