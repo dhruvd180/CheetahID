@@ -134,10 +134,17 @@ class EnhancedCheetahIdentifier:
         
         with torch.no_grad():
             # Process each crop
+
+# inside extract_query_embedding
             for crop in crops:
+                # Ensure crop is a PIL Image
+                if isinstance(crop, np.ndarray):
+                    crop = Image.fromarray(crop)
+                elif not isinstance(crop, Image.Image):
+                    raise ValueError(f"Unexpected crop type: {type(crop)}")
+            
                 crop_embeddings = []
-                
-                # Apply TTA to each crop
+            
                 for transform in self.tta_transforms:
                     try:
                         img_t = transform(crop).unsqueeze(0).to(self.device)
@@ -146,7 +153,7 @@ class EnhancedCheetahIdentifier:
                     except Exception as e:
                         print(f"Error in TTA transform: {e}")
                         continue
-                
+
                 if crop_embeddings:
                     # Average embeddings from different augmentations for this crop
                     avg_crop_emb = torch.cat(crop_embeddings, dim=0).mean(dim=0, keepdim=True)
@@ -553,4 +560,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
